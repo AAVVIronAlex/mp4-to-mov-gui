@@ -98,7 +98,7 @@ class FFmpegGUI(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle(f"Triada FFmpeg GUI v{VERSION}")
+        self.setWindowTitle(f"MP4 to MOV GUI v{VERSION}")
         # Set initial window size
         self.resize(300, self.height())
 
