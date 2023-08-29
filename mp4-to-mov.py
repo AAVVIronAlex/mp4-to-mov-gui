@@ -85,7 +85,7 @@ class CustomStream(QObject):
         pass
 
 
-class FFmpegGUI(QWidget):
+class MP4_to_MOV_GUI(QWidget):
     encoder_thread = None
     video_file_info = None
     output_base_name = None
@@ -127,18 +127,6 @@ class FFmpegGUI(QWidget):
         # Set initially hidden until the image sequence is detected
         self.frame_rate_label.hide()
         self.frame_rate_input.hide()
-
-        layout.addWidget(QLabel('Audio Source (optional)'))
-        self.audio_input = DnDLineEdit()
-        self.audio_input.file_dropped.connect(self.select_audio)
-        self.audio_input.editingFinished.connect(
-            lambda: self.select_audio(self.audio_input.text()))
-        self.audio_button = QPushButton('Browse')
-        self.audio_button.clicked.connect(lambda: self.select_audio())
-        audio_layout = QHBoxLayout()
-        audio_layout.addWidget(self.audio_input)
-        audio_layout.addWidget(self.audio_button)
-        layout.addLayout(audio_layout)
 
         layout.addWidget(QLabel('Resize'))
         resize_layout = QHBoxLayout()
@@ -658,6 +646,6 @@ class FFmpegGUI(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = FFmpegGUI()
+    window = MP4_to_MOV_GUI()
     window.show()
     sys.exit(app.exec_())
